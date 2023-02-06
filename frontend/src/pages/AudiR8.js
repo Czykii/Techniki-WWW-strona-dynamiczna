@@ -11,9 +11,22 @@ function AudiR8() {
         });
     }, []);
 
+    const [price, setOfPrice] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/prices", {
+            params: {
+                auto: "Audi R8"
+            }
+        }).then((response) => {
+            setOfPrice(response.data)
+        })
+    }, []);
+
     return (
         <div>
             { listOfCars.map((value, key) => {
+                if(value.car == "Audi R8"){
                 return (
                     <div>
 
@@ -69,11 +82,11 @@ function AudiR8() {
                                         <div className="col-md-6">
                                             <p>{value.car}</p>
                                             <p>Rodzaj paliwa: {value.fuel}</p>
-                                            <p>Moc: {value.power}</p>
-                                            <p>Skrzynia biegów: {value.gearbox}</p>
-                                            <p>Ilość pasażerów: {value.seats}</p>
-                                            <p>Przyspieszenie 0-100 km/h: {value.acceleration}</p>
-                                            <p>Limit kilometrów: {value.limit}</p>
+                                            <p>Moc: {value.power} koni mechanicznych</p>
+                                            <p>Skrzynia biegów: {value.gearbox} biegów</p>
+                                            <p>Ilość miejsc: {value.seats}</p>
+                                            <p>Przyspieszenie 0-100 km/h: {value.acceleration}s</p>
+                                            <p>Limit kilometrów: {value.limit} km/24h</p>
                                             <p>Napęd: {value.drive}</p>
                                         </div>
                                     </div>
@@ -82,27 +95,27 @@ function AudiR8() {
                             {/*- Tabela z cennikiem wypożyczenia -*/}
                             <section className="audir8-cennik mt-3">
                                 <h1>Cennik wypożyczenia</h1>
-                                <p>Regularna cena za dobę: 900zł</p>
+                                <p>Regularna cena za dobę: {price.cena_1} zł</p>
                                 <div className="container">
                                     <table className="table table-bordered">
                                         <thead className="thead-dark">
                                         <tr>
                                             <th scope="col">Długość najmu (doby)</th>
-                                            <th scope="col">Cena za dobę</th>
+                                            <th scope="col">Cena za dobę (PLN)</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td>Lorem ipsum</td>
+                                            <td>{price.cena_1}</td>
                                         </tr>
                                         <tr>
                                             <td>7</td>
-                                            <td>Lorem ipsum</td>
+                                            <td>{price.cena_7}</td>
                                         </tr>
                                         <tr>
                                             <td>30</td>
-                                            <td>Lorem ipsum</td>
+                                            <td>{price.cena_30}</td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -111,7 +124,8 @@ function AudiR8() {
                         </section>
 
                     </div>
-                );
+
+                )};
             })}
         </div>
     );

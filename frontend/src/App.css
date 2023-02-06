@@ -349,3 +349,75 @@
   color: white;
   text-align: center;
 }
+
+/*-------------------------- adminpanel.html -----------------------------------*/
+
+.adminpanel{
+  background-image: linear-gradient(to right,rgba(14.9, 3.9, 37.3, 0.86), rgba(0, 11.4, 27.1, 0.86), rgba(14.9, 3.9, 37.3, 0.86));
+  color: white;
+}
+
+#InputAuto{
+  background-image: linear-gradient(to right,rgba(14.9, 3.9, 37.3, 0.86), rgba(0, 11.4, 27.1, 0.86), rgba(14.9, 3.9, 37.3, 0.86));
+  color: white;
+}
+
+#InputPaliwo{
+  background-image: linear-gradient(to right,rgba(14.9, 3.9, 37.3, 0.86), rgba(0, 11.4, 27.1, 0.86), rgba(14.9, 3.9, 37.3, 0.86));
+  color: white;
+}
+
+#InputMoc{
+  background-image: linear-gradient(to right,rgba(14.9, 3.9, 37.3, 0.86), rgba(0, 11.4, 27.1, 0.86), rgba(14.9, 3.9, 37.3, 0.86));
+  color: white;
+}
+
+#InputBiegi{
+  background-image: linear-gradient(to right,rgba(14.9, 3.9, 37.3, 0.86), rgba(0, 11.4, 27.1, 0.86), rgba(14.9, 3.9, 37.3, 0.86));
+  color: white;
+}
+
+#InputMiejsca{
+  background-image: linear-gradient(to right,rgba(14.9, 3.9, 37.3, 0.86), rgba(0, 11.4, 27.1, 0.86), rgba(14.9, 3.9, 37.3, 0.86));
+  color: white;
+}
+
+#InputSeta{
+  background-image: linear-gradient(to right,rgba(14.9, 3.9, 37.3, 0.86), rgba(0, 11.4, 27.1, 0.86), rgba(14.9, 3.9, 37.3, 0.86));
+  color: white;
+}
+
+#InputLimit{
+  background-image: linear-gradient(to right,rgba(14.9, 3.9, 37.3, 0.86), rgba(0, 11.4, 27.1, 0.86), rgba(14.9, 3.9, 37.3, 0.86));
+  color: white;
+}
+
+#InputNapęd{
+  background-image: linear-gradient(to right,rgba(14.9, 3.9, 37.3, 0.86), rgba(0, 11.4, 27.1, 0.86), rgba(14.9, 3.9, 37.3, 0.86));
+  color: white;
+}
+
+#InputCena1{
+  background-image: linear-gradient(to right,rgba(14.9, 3.9, 37.3, 0.86), rgba(0, 11.4, 27.1, 0.86), rgba(14.9, 3.9, 37.3, 0.86));
+  color: white;
+}
+
+#InputCena7{
+  background-image: linear-gradient(to right,rgba(14.9, 3.9, 37.3, 0.86), rgba(0, 11.4, 27.1, 0.86), rgba(14.9, 3.9, 37.3, 0.86));
+  color: white;
+}
+
+#InputCena30{
+  background-image: linear-gradient(to right,rgba(14.9, 3.9, 37.3, 0.86), rgba(0, 11.4, 27.1, 0.86), rgba(14.9, 3.9, 37.3, 0.86));
+  color: white;
+}
+
+#InputUsluga{
+  background-image: linear-gradient(to right,rgba(14.9, 3.9, 37.3, 0.86), rgba(0, 11.4, 27.1, 0.86), rgba(14.9, 3.9, 37.3, 0.86));
+  color: white;
+}
+
+#InputCenaUsl{
+  background-image: linear-gradient(to right,rgba(14.9, 3.9, 37.3, 0.86), rgba(0, 11.4, 27.1, 0.86), rgba(14.9, 3.9, 37.3, 0.86));
+  color: white;
+}

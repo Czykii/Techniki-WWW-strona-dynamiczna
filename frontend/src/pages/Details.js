@@ -1,6 +1,40 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import axios from "axios";
 
 function Details() {
+
+    const [listOfPrice, setListOfPrice] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/prices").then((response) => {
+            setListOfPrice(response.data)
+        });
+    }, []);
+
+    const [listOfLimit, setListOfLimit] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/limits").then((response) => {
+            setListOfLimit(response.data)
+        });
+    }, []);
+
+    const [listOfAcc, setListOfAcc] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/accs").then((response) => {
+            setListOfAcc(response.data)
+        });
+    }, []);
+
+    const [listOfDep, setListOfDep] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/deps").then((response) => {
+            setListOfDep(response.data)
+        });
+    }, []);
+
     return(
         <div>
             <section className="details p-5 text-center">
@@ -12,30 +46,22 @@ function Details() {
                             <thead className="thead-dark">
                             <tr>
                                 <th scope="col">Model auta</th>
-                                <th scope="col">Cena za 1 dzień</th>
-                                <th scope="col">Cena za 7 dni</th>
-                                <th scope="col">Cena za 30 dni</th>
+                                <th scope="col">Cena za 1 dzień (PLN)</th>
+                                <th scope="col">Cena za 7 dni (PLN)</th>
+                                <th scope="col">Cena za 30 dni (PLN)</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>Audi R8</td>
-                                <td>900zł brutto</td>
-                                <td>4.500zł brutto</td>
-                                <td>10.000zł brutto</td>
-                            </tr>
-                            <tr>
-                                <td>Nissan GTR</td>
-                                <td>800zł brutto</td>
-                                <td>4.000zł brutto</td>
-                                <td>9.000zł brutto</td>
-                            </tr>
-                            <tr>
-                                <td>Porsche 911</td>
-                                <td>700zł brutto</td>
-                                <td>3.500zł brutto</td>
-                                <td>8.000zł brutto</td>
-                            </tr>
+                                {listOfPrice.map((price) => {
+                                    return(
+                                        <tr>
+                                            <td>{price.model_auta} </td>
+                                            <td>{price.cena_1} brutto</td>
+                                            <td>{price.cena_7} brutto</td>
+                                            <td>{price.cena_30} brutto</td>
+                                        </tr>
+                                    )
+                                })}
                             </tbody>
                         </table>
                     </div>
@@ -53,30 +79,14 @@ function Details() {
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>1-3 dni</td>
-                                        <td>250 km</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3-6 dni</td>
-                                        <td>200 km</td>
-                                    </tr>
-                                    <tr>
-                                        <td>7-13 dni</td>
-                                        <td>175 km</td>
-                                    </tr>
-                                    <tr>
-                                        <td>14-20 dni</td>
-                                        <td>135 km</td>
-                                    </tr>
-                                    <tr>
-                                        <td>21-29 dni</td>
-                                        <td>100 km</td>
-                                    </tr>
-                                    <tr>
-                                        <td>30 dni i dłużej</td>
-                                        <td>85 km</td>
-                                    </tr>
+                                        {listOfLimit.map((limit) => {
+                                        return(
+                                            <tr>
+                                                <td>{limit.okres}</td>
+                                                <td>{limit.kilometry}</td>
+                                            </tr>
+                                        )
+                                        })}
                                     </tbody>
                                 </table>
                             </div>
@@ -92,30 +102,18 @@ function Details() {
                                     <thead className="thead-dark">
                                     <tr>
                                         <th scope="col">Usługi dodatkowe</th>
-                                        <th scope="col">Cena brutto</th>
+                                        <th scope="col">Cena brutto (PLN)</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>Lorem ipsum</td>
-                                        <td>150zł</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lorem ipsum</td>
-                                        <td>200zł</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lorem ipsum</td>
-                                        <td>1.750zł</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lorem ipsum</td>
-                                        <td>50zł</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lorem ipsum</td>
-                                        <td>2.137zł</td>
-                                    </tr>
+                                        {listOfAcc.map((acc) =>{
+                                            return(
+                                                <tr>
+                                                    <td>{acc.nazwa}</td>
+                                                    <td>{acc.cena}</td>
+                                                </tr>
+                                            )
+                                        })}
                                     </tbody>
                                 </table>
                             </div>
@@ -131,22 +129,18 @@ function Details() {
                                     <thead className="thead-dark">
                                     <tr>
                                         <th scope="col">Wiek kierowcy</th>
-                                        <th scope="col">Kaucja za samochód</th>
+                                        <th scope="col">Kaucja za samochód (PLN)</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>18-21 lat</td>
-                                        <td>4.000zł</td>
-                                    </tr>
-                                    <tr>
-                                        <td>21-24 lata</td>
-                                        <td>2.000zł</td>
-                                    </tr>
-                                    <tr>
-                                        <td>powyżej 24 lat</td>
-                                        <td>1.000zł</td>
-                                    </tr>
+                                        {listOfDep.map((dep) => {
+                                            return(
+                                                <tr>
+                                                    <td>{dep.wiek}</td>
+                                                    <td>{dep.cena}</td>
+                                                </tr>
+                                            )
+                                        })}
                                     </tbody>
                                 </table>
                             </div>

@@ -1,4 +1,6 @@
 import React from "react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import 'font-awesome/css/font-awesome.min.css'
 
 function Contact() {
     return(
